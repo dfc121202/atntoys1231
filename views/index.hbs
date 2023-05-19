@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATN Index</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 17px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 24px 26px;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        .navbar li a:hover {
+            background-color: #111;
+        }
+
+        table{
+            text-align: center;
+        }
+
+        table td{
+            padding: 12px 16px;   
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">ATN SHOP</a></li>
+            <li><a href="/index">Index</a></li>
+            <li><a href="/add">Add Product</a></li>
+        </ul>
+    </div>
+    <br><br><br><br>
+    <center>
+        <h1>
+            Product List
+        </h1>
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Picture URL</td>
+                <td>Picture</td>
+                <td>Options</td>
+            </tr>
+            {{#each products}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>{{pic}}</td>
+                <td><img src="{{pic}}" alt="" height="160px" width="auto"></td>
+                <td>
+                    <a href="/edit/{{_id}}"><button>Edit</button></a>
+                    <a href="/delete/{{_id}}" onclick="return confirm('Are you sure?')"><button>Delete</button></a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </center>
+
+</body>
+
+</html>
